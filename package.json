@@ -1,0 +1,19 @@
+{
+  "name": "onem2m-api-integration",
+  "version": "1.0.0",
+  "description": "OneM2M API Integration project using ExpressJS, NodeJS and monogoDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yalrnr/onem2m-api-integration.git"
+  },
+  "author": "Anuj, Antara",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yalrnr/onem2m-api-integration/issues"
+  },
+  "homepage": "https://github.com/yalrnr/onem2m-api-integration#readme"
+}
