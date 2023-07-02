@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken')
 require('dotenv').config()
 
 loginRouter.post("/", (req,res) => {
+
     const user = {
         name : 'admin',
         password : 'admin@123',
