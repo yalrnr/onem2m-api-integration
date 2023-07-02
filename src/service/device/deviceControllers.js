@@ -2,7 +2,7 @@ const deviceModel = require('../../dbmodel/device/deviceModel')
 
 let devices = [];
 
-exports.getDevices = async (req, res) => {
+exports.getAllDevices = async (req, res) => {
     try {
         const devices = await deviceModel.find({})
         return res.status(200).json({
@@ -16,8 +16,7 @@ exports.getDevices = async (req, res) => {
     }
 }
 
-
-exports.postDevices = async (req, res) => {
+exports.postDevice = async (req, res) => {
     try {
         const reqBody = req.body;
         const result = await deviceModel.create(reqBody)
@@ -31,7 +30,7 @@ exports.postDevices = async (req, res) => {
     }
 }
 
-exports.getDevicesById = async (req, res) => {
+exports.getDeviceById = async (req, res) => {
     try {
         const deviceId = req.params.id;
         const device = await deviceModel.findById(deviceId)
@@ -50,7 +49,7 @@ exports.getDevicesById = async (req, res) => {
     }
 }
 
-exports.updateDevicesById = async (req, res) => {
+exports.updateDeviceById = async (req, res) => {
     try {
         const deviceId = req.params.id
         const reqBody = req.body
@@ -76,7 +75,7 @@ exports.updateDevicesById = async (req, res) => {
     
 }
 
-exports.deleteDevicesById = async (req, res) => {
+exports.deleteDeviceById = async (req, res) => {
     try {
         const deviceId = (req.params.id);
         const device = await deviceModel.findById(deviceId)

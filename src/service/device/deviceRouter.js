@@ -3,10 +3,10 @@ const deviceController = require('./deviceControllers')
 const deviceRouter = require('express').Router()
 
 
-deviceRouter.get("/", deviceController.getDevices);
-deviceRouter.post("/", deviceController.postDevices)
-deviceRouter.get("/:id", deviceController.getDevicesById);
-deviceRouter.patch("/:id", deviceController.updateDevicesById)
-deviceRouter.delete("/:id", deviceController.deleteDevicesById);
+deviceRouter.get("/", deviceController.getAllDevices);
+deviceRouter.post("/", deviceController.postDevice)
+deviceRouter.get("/:id", deviceController.getDeviceById);
+deviceRouter.patch("/:id", deviceController.updateDeviceById)
+deviceRouter.delete("/:id", deviceController.deleteDeviceById);
 
 module.exports = deviceRouter
