@@ -1,8 +1,15 @@
 const deviceModel = require('../../dbmodel/device/deviceModel')
+const jwt = require('jsonwebtoken')
+require('dotenv').config()
 
 let devices = [];
 
 exports.getAllDevices = async (req, res) => {
+    jwt.verify(req.token, process.env.secretKey, (error, authData) => {
+        if(error) {
+            res.send({message : "Invalid Token"})
+        }
+    })
     try {
         const devices = await deviceModel.find({})
         return res.status(200).json({
@@ -17,6 +24,11 @@ exports.getAllDevices = async (req, res) => {
 }
 
 exports.postDevice = async (req, res) => {
+    jwt.verify(req.token, process.env.secretKey, (error, authData) => {
+        if(error) {
+            res.send({message : "Invalid Token"})
+        }
+    })
     try {
         const reqBody = req.body;
         const result = await deviceModel.create(reqBody)
@@ -31,6 +43,11 @@ exports.postDevice = async (req, res) => {
 }
 
 exports.getDeviceById = async (req, res) => {
+    jwt.verify(req.token, process.env.secretKey, (error, authData) => {
+        if(error) {
+            res.send({message : "Invalid Token"})
+        }
+    })
     try {
         const deviceId = req.params.id;
         const device = await deviceModel.findById(deviceId)
@@ -50,6 +67,11 @@ exports.getDeviceById = async (req, res) => {
 }
 
 exports.updateDeviceById = async (req, res) => {
+    jwt.verify(req.token, process.env.secretKey, (error, authData) => {
+        if(error) {
+            res.send({message : "Invalid Token"})
+        }
+    })
     try {
         const deviceId = req.params.id
         const reqBody = req.body
@@ -76,6 +98,11 @@ exports.updateDeviceById = async (req, res) => {
 }
 
 exports.deleteDeviceById = async (req, res) => {
+    jwt.verify(req.token, process.env.secretKey, (error, authData) => {
+        if(error) {
+            res.send({message : "Invalid Token"})
+        }
+    })
     try {
         const deviceId = (req.params.id);
         const device = await deviceModel.findById(deviceId)
