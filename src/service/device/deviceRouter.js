@@ -8,8 +8,6 @@ deviceRouter.get("/:id", verifyToken, deviceController.getDeviceById);
 deviceRouter.patch("/:id", verifyToken, deviceController.updateDeviceById)
 deviceRouter.delete("/:id", verifyToken, deviceController.deleteDeviceById);
 
-module.exports = deviceRouter
-
 function verifyToken(req,res,next) {
     const bearerHeader = req.headers['authorization']
     if(typeof bearerHeader === 'undefined') {
@@ -21,3 +19,5 @@ function verifyToken(req,res,next) {
     }
     next()
 }
+
+module.exports = deviceRouter
