@@ -1,17 +1,28 @@
 const mongoose = require('mongoose')
 
+const measurementSchema = new mongoose.Schema({
+    type: {
+      type: String,
+      required: true
+    },
+    value: {
+      type: Number,
+      required: true
+    },
+    unit: {
+      type: String,
+      required: true
+    }
+  });
+
 const deviceSchema = new mongoose.Schema({
     name : {
         type: String,
         required: [true,'The device name is must']
     },
-    type : {
-        type:String,
-        required : [true, 'Enter the type of device pls']
-    },
-    value : {
-        type : String,
-        required : [true, 'The value is must for the device']
+    values: {
+        type: [measurementSchema],
+        required: true
     }
 });
 
